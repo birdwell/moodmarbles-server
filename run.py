@@ -11,4 +11,4 @@ if __name__ == '__main__':
     app = get_app()
     app.register_blueprint(TWITTER, url_prefix="/twitter")
     logging.info(app.url_map)
-    app.run(threaded=True, debug=True)
+    app.run(threaded=True, debug=True, port=5001)

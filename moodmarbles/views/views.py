@@ -21,4 +21,4 @@ def tweets():
     count = request.args.get("count")
     count = 15 if not count else count
     texts = get_tweets_with_hashtag(hashtag=hashtag, count=count)
-    return jsonify({"texts": texts}), 200
+    return jsonify(texts), 200
