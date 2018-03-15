@@ -1,4 +1,5 @@
 import os
+import json
 import twitter
 import operator
 
@@ -21,14 +22,21 @@ _API = twitter.Api(consumer_key=os.environ[CONSUMER_KEY],
 _NLU = NLU(version='2018-03-14', username=os.environ[USERNAME], password=os.environ[PASSWORD])
 
 def get_tweets_with_hashtag(hashtag, count):
+    if os.path.exists('%s.json'%hashtag):
+        return json.load(open('%s.json'%hashtag, 'r'))
     tweets = _API.GetSearch(term=hashtag, include_entities=True, count=count)
     analyses = []
     for tweet in tweets:
-        analysis = get_sentiment(tweet.text)
-        max_emote = max(analysis.items(), key=operator.itemgetter(1))[0]
+        try:
+        	analysis = get_sentiment(tweet.text)
+        except:
+            continue
+        max_emote = max(analysis.items(), key=operator.itemgetter(1))
         result = {'text': tweet.text,
-        		  'emotion': max_emote}
+        		  'emotion': max_emote[0],
+				  'magnitude': max_emote[1]}
         analyses.append(result)
+    json.dump(analyses, open('%s.json'%hashtag, 'w'))
     return analyses
 
 def get_sentiment(text):
