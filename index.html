@@ -9,61 +9,6 @@
     </style>
 </head>
 <body>
-<script src="three.min.js"></script>
-<script src="particles.js"></script>
-<script>
-    var WIDTH = window.innerWidth;
-    var HEIGHT = window.innerHeight;
-
-    // Create the renderer from THREE library
-    var renderer = new THREE.WebGLRenderer({antialias:true});
-    renderer.setSize(WIDTH, HEIGHT);
-    renderer.setClearColor(0x000000, 1);
-    document.body.appendChild(renderer.domElement);
-
-    // Create the scene
-    var scene = new THREE.Scene();
-
-    // Create the camera for the scene (Play with these more)
-    var camera= new THREE.PerspectiveCamera(50, WIDTH/HEIGHT);
-    camera.position.z = 50;
-    scene.add(camera);
-
-     var particleSystem = createParticles();
-
-    // Render the scene
-    function render() {
-        requestAnimationFrame(render);
-        t +=0.03;
-        sphere.rotation.y += 0.01;
-        // sphere.position.z = -7*Math.sin(t*2);
-        updateParticles(particleSystem)
-        renderer.render(scene, camera)
-    }
-
-    var sphereGeometry = new THREE.SphereGeometry(5,32,32);
-    // !Needs light to work!
-    var phongMaterial = new THREE.MeshPhongMaterial({color: 0x0095DD});
-    var sphere = new THREE.Mesh(sphereGeometry, phongMaterial);
-
-    // Create a light (white)
-    var light = new THREE.PointLight(0xFFFFFF);
-    light.position.set(-10, 15, 50);
-
-    // Add to the scene
-    scene.add(light);
-    scene.add(sphere);
-    scene.add(particleSystem);
-
-    // Manipulation
-    sphere.rotation.set(0.4,0.2, 0);
-
-    var t = 0;
-
-    render();
-
-
-
-</script>
+    <script src="./index.js"></script>
 </body>
 </html>

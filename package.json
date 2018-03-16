@@ -1,0 +1,29 @@
+{
+  "name": "moodmarbles-server",
+  "version": "1.0.0",
+  "description": "Tone Anaylzer  - [Examples](https://github.com/watson-developer-cloud/python-sdk/blob/master/examples/tone_analyzer_v3.py) - [API Walkthrough](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/?python#api_explorer)",
+  "main": "three.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birdwell/moodmarbles-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/birdwell/moodmarbles-server/issues"
+  },
+  "homepage": "https://github.com/birdwell/moodmarbles-server#readme",
+  "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "three": "^0.91.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0"
+  }
+}
