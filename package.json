@@ -4,7 +4,8 @@
   "description": "Tone Anaylzer  - [Examples](https://github.com/watson-developer-cloud/python-sdk/blob/master/examples/tone_analyzer_v3.py) - [API Walkthrough](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/?python#api_explorer)",
   "main": "three.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
   },
   "repository": {
     "type": "git",
