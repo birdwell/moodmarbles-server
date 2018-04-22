@@ -23,7 +23,9 @@ _NLU = NLU(version='2018-03-14', username=os.environ[USERNAME], password=os.envi
 
 def get_tweets_with_hashtag(hashtag, count):
     if os.path.exists('%s.json'%hashtag):
-        return json.load(open('%s.json'%hashtag, 'r'))
+        data = json.load(open('%s.json'%hashtag, 'r'))
+        data = data[:count] if len(data) > count else data
+        return data
     tweets = _API.GetSearch(term=hashtag, include_entities=True, count=count)
     analyses = []
     for tweet in tweets:
