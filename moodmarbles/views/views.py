@@ -19,8 +19,8 @@ TWITTER = Blueprint("twitter", __name__)
 @TWITTER.route('/tweets', methods=[GET])
 def tweets():
     hashtag = request.args.get("hashtag")
-    count = int(request.args.get("count"))
-    count = 15 if not count else count
+    count = request.args.get("count")
+    count = 15 if not count else int(count)
     texts = get_tweets_with_hashtag(hashtag=hashtag, count=count)
     return jsonify(texts), 200
 

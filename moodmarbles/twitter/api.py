@@ -40,10 +40,10 @@ def get_tweets_with_hashtag(hashtag, count):
                 'createdAt': tweet.created_at,
                 'favorites': tweet.favorite_count,
                 'retweets': tweet.retweet_count,
-                'tweetUrl': tweet.urls,
-                'profilePic': tweet.user.profile_image_url,
+                'tweetUrl': tweet.urls[0].expanded_url if len(tweet.urls) > 0 else {},
+                'profilePic': str(tweet.user.profile_image_url),
                 'username': tweet.user.screen_name,
-                'profileUrl': tweet.user.url
+                'profileUrl': str(tweet.user.url)
             },
             'emotion': max_emote[0],
             'magnitude': max_emote[1]
