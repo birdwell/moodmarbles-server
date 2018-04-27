@@ -1,3 +1,4 @@
+# Construct the base Flask app
 from flask import Flask
 
 _BASE_APP = Flask(__name__)
